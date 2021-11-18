@@ -1,5 +1,7 @@
 #Origin https://leetcode.com/problems/longest-common-prefix/
 
+#took 2 hours, thought it was easy at first. Not liking the list I made or the try/except. Will likely refactor later.
+
 class Solution:
     def longestCommonPrefix(self, strs) -> str:
         flag = True
