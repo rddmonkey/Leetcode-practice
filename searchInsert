@@ -15,15 +15,11 @@ class Solution:
                     if nums[x] < target:
                         pass
                     if nums[x] > target:
-                        nums.insert(x,target)
-                        print(nums)
-                        return nums.index(target)
+                        return x
 
             else:
                 for x in range(len(nums)-1,-1,-1):
                     if nums[x] > target:
                         pass
                     if nums[x] < target:
-                        nums.insert(x+1,target)
-                        print(nums)
-                        return nums.index(target)
+                        return x+1
