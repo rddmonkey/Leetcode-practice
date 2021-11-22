@@ -1,0 +1,15 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+
+        combined = list(s)
+        answer = 0
+
+        while combined[-1] == " ":
+            combined.pop()
+
+        for x in range(len(combined)-1,-1,-1):
+            if combined[x] != " ":
+                answer+=1
+            else:
+                return answer
+        return answer
