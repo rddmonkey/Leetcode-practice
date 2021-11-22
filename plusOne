@@ -1,0 +1,16 @@
+class Solution:
+    def plusOne(self, digits):
+
+        word = ""
+
+        for x in digits:
+            word += str(x)
+
+        word = int(word)
+        word += 1
+        word = str(word)
+        ans = []
+
+        for x in word:
+            ans.append(int(x))
+        return ans
