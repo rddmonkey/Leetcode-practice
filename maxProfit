@@ -1,0 +1,22 @@
+class Solution:
+    def maxProfit(self, prices) -> int:
+
+        maxprofit = 0
+        start = 0
+
+        while start != len(prices) -1:
+
+            value = prices[start]
+
+            for x in range(len(prices)):
+                if start >= x:
+                    continue
+                total = prices[x] - value
+                if maxprofit < total:
+                    maxprofit = total
+            start += 1
+
+
+        return maxprofit
+        
+        
