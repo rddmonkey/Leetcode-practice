@@ -4,13 +4,8 @@ class Solution:
         maxprofit = 0
 
         for x in range(len(prices)):
-
             if len(prices[x+1:]) == 0:
                 continue
-            if prices[x] > max(prices[x+1:]):
-                continue
-            total = max(prices[x+1:]) - prices[x]
-            if maxprofit < total:
-                maxprofit = total
-
+            if max(prices[x+1:]) - prices[x] > maxprofit:
+                maxprofit = max(prices[x+1:]) - prices[x]
         return maxprofit
