@@ -1,0 +1,15 @@
+class Solution:
+    def containsDuplicate(self, nums) -> bool:
+
+        mydict = {}
+
+        for x in nums:
+            if x not in mydict:
+                mydict[x] = 1
+            else:
+                mydict[x] +=1
+
+        for key,value in mydict.items():
+            if value >= 2:
+                return True
+        return False
