@@ -1,8 +1,16 @@
 class Solution:
     def majorityElement(self, nums) -> int:
 
-        majority = len(nums)/2
+        mydict = {}
 
         for x in nums:
-            if nums.count(x) > majority:
-                return x
+            if x not in mydict:
+                mydict[x] = 1
+            else:
+                mydict[x] +=1
+
+        maxfreq = max(mydict.values())
+
+        for keys,values in mydict.items():
+            if values == maxfreq:
+                return keys
