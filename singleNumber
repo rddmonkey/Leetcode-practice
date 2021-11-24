@@ -1,0 +1,14 @@
+class Solution:
+    def singleNumber(self, nums) -> int:
+
+        mydict = {}
+
+        for x in nums:
+            if x not in mydict:
+                mydict[x] = 1
+            else:
+                mydict[x] +=1
+
+        for values,keys in mydict.items():
+            if keys == 1:
+                return values
