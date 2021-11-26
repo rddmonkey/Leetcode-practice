@@ -1,0 +1,36 @@
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str):
+        slist1 = set(s1.split(" "))
+        slist2 = set(s2.split(" "))
+
+        ans = []
+
+        word = list(slist2.difference(slist1))
+        word2 = list(slist1.difference(slist2))
+        possible = ans + word + word2
+
+        mydict1 = {}
+        mydict2 = {}
+
+        for x in s2.split():
+            if x not in mydict2:
+                mydict2[x] = 1
+            else:
+                mydict2[x] += 1
+
+        for x in s1.split():
+            if x not in mydict1:
+                mydict1[x] =1
+            else:
+                mydict1[x] +=1
+
+
+        for i in range(len(possible)):
+            for k,v in mydict1.items():
+                if k == possible[i] and v == 1:
+                    ans.append(possible[i])
+            for k,v in mydict2.items():
+                if k == possible[i] and v == 1:
+                    ans.append(possible[i])
+
+        return ans
