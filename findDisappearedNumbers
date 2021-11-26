@@ -1,0 +1,11 @@
+class Solution:
+    def findDisappearedNumbers(self, nums):
+
+        truenums = [*range(1,len(nums)+1)]
+
+        ans = []
+
+        for x in truenums:
+            if x not in nums:
+                ans.append(x)
+        return ans
