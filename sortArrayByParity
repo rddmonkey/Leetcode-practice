@@ -1,14 +1,14 @@
 class Solution:
     def sortArrayByParity(self, nums):
 
-        ans = []
+        evens = []
+        odds = []
 
         for x in nums:
             if x % 2 != 1:
-                ans.append(x)
+                evens.append(x)
+            else:
+                odds.append(x)
 
-        for x in nums:
-            if x % 2 == 1:
-                ans.append(x)
 
-        return ans
+        return evens + odds
