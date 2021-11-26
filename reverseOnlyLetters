@@ -1,0 +1,21 @@
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+
+        texts = ""
+
+        for i in range(len(s)-1,-1,-1):
+            if s[i].isalpha():
+                texts += s[i]
+
+        testlist = []
+        start= 0
+
+
+        for x in s:
+            testlist.append(x)
+
+        for i in range(len(testlist)):
+            if testlist[i].isalpha():
+                testlist[i] = texts[start]
+                start += 1
+        return "".join(testlist)
