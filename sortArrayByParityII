@@ -1,0 +1,16 @@
+class Solution:
+    def sortArrayByParityII(self, nums):
+        odds = [i for i in nums if i%2==1]
+        evens = [i for i in nums if i%2==0]
+        starteven = 0
+        startodd = 0
+        ans = []
+
+        for i in range(len(nums)):
+            if i%2 == 1:
+               ans.append(odds[startodd])
+               startodd += 1
+            else:
+                ans.append(evens[starteven])
+                starteven+=1
+        return ans
