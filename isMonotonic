@@ -1,0 +1,13 @@
+class Solution:
+    def isMonotonic(self, nums) -> bool:
+
+        numstrue = sorted(nums)
+        numsback = sorted(nums,reverse=True)
+
+        if nums == numstrue:
+            return True
+
+        if nums == numsback:
+            return True
+
+        return False
