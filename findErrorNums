@@ -16,6 +16,6 @@ class Solution:
                 ans.append(k)
 
         for i in range(1,len(nums)+1):
-            if i not in nums:
+            if i not in mydict.keys():
                 ans.append(i)
         return ans
