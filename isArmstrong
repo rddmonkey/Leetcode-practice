@@ -1,0 +1,11 @@
+class Solution:
+    def isArmstrong(self, n: int) -> bool:
+
+        newn = str(n)
+        armstrong = len(newn)
+        ans = []
+        for i in range(len(newn)):
+            ans.append(int(newn[i])**armstrong)
+
+
+        return n == sum(ans)
