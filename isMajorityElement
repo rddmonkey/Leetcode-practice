@@ -1,0 +1,12 @@
+class Solution:
+    def isMajorityElement(self, nums, target):
+
+        majority = len(nums)/2
+
+        count = 0
+
+        for x in nums:
+            if x == target:
+                count +=1
+
+        return majority < count
