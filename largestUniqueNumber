@@ -1,0 +1,13 @@
+class Solution:
+    def largestUniqueNumber(self, nums) -> int:
+
+        newlist = list(set(nums))
+        newlist.sort()
+
+        for i in range(len(newlist)-1,-1,-1):
+            if nums.count(newlist[i]) == 1:
+                return newlist[i]
+            else:
+                newlist.pop()
+
+        return -1
