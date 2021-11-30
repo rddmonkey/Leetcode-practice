@@ -1,13 +1,22 @@
 class Solution:
     def largestUniqueNumber(self, nums) -> int:
 
-        newlist = list(set(nums))
-        newlist.sort()
+        mydict = {}
+        high = float("-inf")
 
-        for i in range(len(newlist)-1,-1,-1):
-            if nums.count(newlist[i]) == 1:
-                return newlist[i]
+
+        for x in nums:
+            if x not in mydict:
+                mydict[x] = 1
             else:
-                newlist.pop()
+                mydict[x] +=1
 
-        return -1
+        for v,k in mydict.items():
+            if k == 1:
+                if v > high:
+                    high = v
+
+        if high == float("-inf"):
+            return -1
+
+        return high
