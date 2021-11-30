@@ -1,0 +1,20 @@
+class Solution:
+    def countCharacters(self, words, chars):
+
+        charslist = [x for x in chars]
+        length = len(charslist)
+        count = 0
+
+        for i in range(len(words)):
+            for j in range(len(words[i])):
+                if words[i][j] not in chars:
+                    charslist = [x for x in chars]
+                    break
+                if words[i][j] in charslist:
+                    charslist.remove(words[i][j])
+                if len(charslist) == length - len(words[i]):
+                    count += len(words[i])
+                    charslist = [x for x in chars]
+
+
+        return count
