@@ -1,0 +1,14 @@
+class Solution:
+    def lastStoneWeight(self, stones) -> int:
+
+        while len(stones) > 1:
+            stones.sort()
+            stone1 = stones.pop()
+            stone2 = stones.pop()
+            if stone1 > stone2:
+                stone3 = stone1 - stone2
+                stones.append(stone3)
+            if stones == []:
+                return 0
+
+        return stones[0]
