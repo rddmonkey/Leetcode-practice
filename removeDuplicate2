@@ -1,27 +1,13 @@
 class Solution:
     def removeDuplicates(self, s: str):
-        slist = [x for x in s]
 
-        skipping = float("-inf")
-        s = ""
+        testlist = []
 
-        for i in range(len(slist)-1):
-            if i == skipping:
-                continue
-            if slist[i] == slist[i+1]:
-                skipping = i+1
-                slist[i:i+2] = [False,False]
-            if slist[i] != False:
-                s += slist[i]
+        for x in s:
+            if testlist != [] and testlist[-1] == x:
+                testlist.pop()
+            else:
 
-        if slist == []:
-            return ""
+                testlist.append(x)
 
-        if slist[-1] != False:
-            s+= slist[-1]
-
-        for i in range(len(slist) - 1):
-            if slist[i] == slist[i + 1]:
-                return Solution().removeDuplicates(s)
-
-        return s
+        return "".join(testlist)
