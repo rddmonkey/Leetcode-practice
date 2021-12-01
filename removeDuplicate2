@@ -2,14 +2,13 @@ class Solution:
     def removeDuplicates(self, s: str):
         slist = [x for x in s]
 
-        copiedlist = slist.copy()
         skipping = float("-inf")
         s = ""
 
-        for i in range(len(copiedlist)-1):
+        for i in range(len(slist)-1):
             if i == skipping:
                 continue
-            if copiedlist[i] == copiedlist[i+1]:
+            if slist[i] == slist[i+1]:
                 skipping = i+1
                 slist[i:i+2] = [False,False]
             if slist[i] != False:
@@ -21,8 +20,8 @@ class Solution:
         if slist[-1] != False:
             s+= slist[-1]
 
-        for i in range(len(copiedlist) - 1):
-            if copiedlist[i] == copiedlist[i + 1]:
+        for i in range(len(slist) - 1):
+            if slist[i] == slist[i + 1]:
                 return Solution().removeDuplicates(s)
 
         return s
