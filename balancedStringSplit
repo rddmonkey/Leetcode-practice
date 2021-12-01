@@ -1,0 +1,17 @@
+class Solution:
+    def balancedStringSplit(self, s: str):
+
+        countr = 0
+        countl = 0
+        total = 0
+
+
+        for x in s:
+            if x == "R":
+                countr +=1
+            if x == "L":
+                countl +=1
+            if countr == countl:
+                total += 1
+
+        return total
