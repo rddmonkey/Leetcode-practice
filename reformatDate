@@ -1,0 +1,28 @@
+class Solution:
+    def reformatDate(self, date: str) -> str:
+        month = {"Jan":"01",
+                 "Feb":"02",
+                "Mar":"03",
+                "Apr":"04",
+                "May":"05",
+                "Jun":"06",
+                "Jul":"07",
+                "Aug":"08",
+                "Sep":"09",
+                "Oct":"10",
+                "Nov":"11",
+                "Dec":"12"}
+
+        datelist = date.split()
+        rawnumber = ""
+        for i in datelist[0]:
+            if i.isdigit():
+                rawnumber += i
+
+        if len(rawnumber) == 1:
+            rawnumber = f"0{rawnumber}"
+
+        for k,v in month.items():
+
+            if datelist[1] == k:
+                return f"{datelist[-1]}-{v}-{rawnumber}"
