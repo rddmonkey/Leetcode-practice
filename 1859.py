@@ -8,12 +8,6 @@ class Solution:
         ans = [""] * len(sindices)
 
         for i in range(len(sindices)):
-            ans[sindices[i]] = slist[i]
+            ans[sindices[i]] = slist[i][0:len(slist[i])-1]
 
-        solution = []
-
-        for x in ans:
-            num = x[0:len(x)-1]
-            solution.append(num)
-
-        return " ".join(solution)
+        return " ".join(ans)
