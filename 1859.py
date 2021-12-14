@@ -1,13 +1,10 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
 
-        slist = s.split()
+        words = s[::-1].split()
+        words.sort()
 
-        sindices = [int(x[-1])-1 for x in slist]
+        for i in range(len(words)):
+            words[i] = words[i][::-1][0:len(words[i])-1]
 
-        ans = [""] * len(sindices)
-
-        for i in range(len(sindices)):
-            ans[sindices[i]] = slist[i][0:len(slist[i])-1]
-
-        return " ".join(ans)
+        return " ".join(words)
