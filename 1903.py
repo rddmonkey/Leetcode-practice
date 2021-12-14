@@ -1,19 +1,7 @@
 class Solution:
     def largestOddNumber(self, num: str) -> str:
-        number = num
 
-        if int(num) % 2 == 1:
-            return num
-
-        while int(num) > 0:
-            num = int(num) // 10
-            if int(num) % 2 == 1:
-                return str(num)
-
-        possible = [int(x) for x in number if int(x) % 2 ==1]
-
-
-        if len(possible) >0:
-            return max(str(possible))
-        else:
-            return ""
+        for i in range(len(num)-1,-1,-1):
+            if num[i] in ['1','3','5','7','9']:
+                return num[:i+1]
+        return ""
