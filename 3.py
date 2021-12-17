@@ -1,32 +1,14 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        longest = float('-inf')
-        start = 0
-        stacked = False
 
-        while start != len(s):
-            stack = []
-            for i in range(start,len(s)):
-                if not stack:
-                    stacked = True
-                    stack.append(s[i])
-                    if i == len(s) - 1:
-                        if len(stack) > longest:
-                            longest = len(stack)
-                    continue
-                if s[i] in stack:
-                    if len(stack) > longest:
-                        longest = len(stack)
-                    break
-                else:
-                    stack.append(s[i])
-                    if i == len(s) - 1:
-                        if len(stack) > longest:
-                            longest = len(stack)
-            start += 1
+        charset = set()
+        l = 0
+        longest = 0
 
-
-        if stacked == False:
-            return 0
-
+        for r in range(len(s)):
+            while s[r] in charset:
+                charset.remove(s[l])
+                l+= 1
+            charset.add(s[r])
+            longest = max(longest, r-l+1)
         return longest
